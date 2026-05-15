@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelligent Routing & Cryptography — Resilient Ad-Hoc Communications</title>
+    
+    <link rel="icon" type="image/png" href="lock.png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+<header>
+  <div class="header-left">
+    <h1>Intelligent Routing &amp; Cryptography</h1>
+  </div>
+  <div class="header-right">
+    <a href="revanth.pdf" target="_blank" class="pdf-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><text x="12" y="16" font-family="system-ui, sans-serif" font-size="5.5" font-weight="bold" fill="currentColor" stroke="none" text-anchor="middle">PDF</text></svg>
+      Read Paper
+    </a>
+    <button class="theme-toggle" onclick="openAboutModal()">ℹ️ About Us</button>
+    <button id="theme-btn" class="theme-toggle" onclick="toggleTheme()">☀️ Light Mode</button>
+  </div>
+</header>
+
+<div class="layout">
+  <div class="canvas-section">
+    <canvas id="network"></canvas>
+    <div class="tooltip" id="tooltip"></div>
+  </div>
+
+  <div class="controls-section">
+    <div class="control-card">
+      <div class="section-label">Network Setup</div>
+      <div class="row">
+        <label>Nodes:</label>
+        <select id="numNodes">
+          <option value="15">15</option>
+          <option value="25" selected>25</option>
+          <option value="40">40</option>
+          <option value="50">50</option>
+        </select>
+        <button class="primary" onclick="generateNetwork()">Generate</button>
+      </div>
+    </div>
+
+    <div class="control-card">
+      <div class="section-label">Routing Controls</div>
+      <div class="row">
+        <label>Src:</label>
+        <input type="number" id="srcNode" min="0" value="0">
+        <label>Dst:</label>
+        <input type="number" id="dstNode" min="0" value="12">
+      </div>
+      <div class="action-grid">
+        <button onclick="existingShortestPath()">Existing Path</button>
+        <button onclick="existingCommunication()">Existing Comm.</button>
+        <button onclick="proposedShortestPath()">Proposed Path</button>
+        <button class="success-btn" onclick="proposedCommunication()">Proposed Comm.</button>
+        <button class="danger" onclick="clearPaths()">Clear Paths</button>
+        <button onclick="showGraph()">View PDR Graph</button>
+      </div>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-card">
+        <div class="val" id="stat-nodes">0</div>
+        <div class="lbl">Nodes</div>
+      </div>
+      <div class="stat-card">
+        <div class="val" id="stat-hops">—</div>
+        <div class="lbl">Hops</div>
+      </div>
+      <div class="stat-card">
+        <div class="val" id="stat-edges">0</div>
+        <div class="lbl">Edges</div>
+      </div>
+      <div class="stat-card">
+        <div class="val" id="stat-wormhole" style="color:var(--orange)">—</div>
+        <div class="lbl">Security Status</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="log-section">
+    <div class="log-header">
+      <span>System Log</span>
+      <button class="icon-btn" onclick="clearLog()">Clear</button>
+    </div>
+    <div class="log-content" id="logContent">
+      <div class="log-line info">» System ready. Generate a network to begin.</div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="chartModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h2>Packet Delivery Ratio</h2>
+      <button class="close-btn" onclick="closeModal()">✕</button>
+    </div>
+    <canvas id="pdrChart" height="260"></canvas>
+  </div>
+</div>
+<div class="modal-overlay" id="aboutModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h2>About the Research</h2>
+      <button class="close-btn" onclick="closeAboutModal()">✕</button>
+    </div>
+    <div class="modal-body" style="color: var(--text); line-height: 1.8;">
+      <p>This interactive visualization models the routing protocols and cryptographic methodologies presented in the research paper: <strong>"Intelligent Routing and Cryptography for Resilient Ad-Hoc Communications"</strong>.</p>
+      
+      <div style="margin: 20px 0; padding: 16px; background: var(--bg-element); border-radius: var(--radius-md); border: 1px solid var(--border);">
+        <h3 style="margin-bottom: 12px; font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px;">Research Team</h3>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 6px;"><strong>Dr. K. Rekhadevi</strong> — Assistant Professor</li>
+          <li style="margin-bottom: 6px;"><strong>Valupadasu Revanth</strong> — Team lead</li>
+          <li style="margin-bottom: 6px;"><strong>Puli Jahnavi</strong> — UG Student</li>
+          <li style="margin-bottom: 6px;"><strong>Yellaboina Sindhu</strong> — UG Student</li>
+          <li><strong>G. Ushan</strong> — UG Student</li>
+        </ul>
+      </div>
+      
+      <p style="font-size: 13px; color: var(--text-muted);">
+        Department of Computer Science and Engineering<br>
+        Vaagdevi College of Engineering (UGC - Autonomous), Bollikunta, Warangal, Telangana.
+      </p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
