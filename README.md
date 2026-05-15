@@ -8,14 +8,15 @@
 An interactive, web-based simulation demonstrating secure data transmission in mobile ad-hoc networks (MANETs). [cite_start]This project visualizes the vulnerabilities of traditional routing protocols to wormhole attacks [cite: 11, 24] [cite_start]and implements a robust mitigation strategy using **Dijkstra's Algorithm** [cite: 14, 98] [cite_start]and the **Schnorr Signature Protocol**[cite: 15, 98].
 
 ## 🚀 Live Demo
-*(Insert link to your live GitHub Pages or hosting site here, e.g., `[Live Demo](https://yourusername.github.io/repo-name)`)*
+*https://revanth216.github.io/adhoc/*
 
 ## 📖 Project Overview
-[cite_start]Ad-hoc networks dynamically form connections without relying on fixed infrastructure, making them ideal for disaster recovery and military deployments[cite: 9, 25, 26]. [cite_start]However, this flexibility makes them highly susceptible to cyberattacks at the routing layer, particularly wormhole attacks[cite: 11, 24, 27].
+Ad-hoc networks dynamically form connections without relying on fixed infrastructure, making them ideal for disaster recovery and military deployments. 
+However, this flexibility makes them highly susceptible to cyberattacks at the routing layer, particularly wormhole attacks.
 
 This simulation provides a side-by-side comparison of:
-1. [cite_start]**Existing Random Routing:** A probabilistic approach that is inefficient, resource-heavy, and easily compromised by malicious nodes[cite: 144, 145, 146, 160].
-2. [cite_start]**Proposed Secure Routing:** A dynamic approach that calculates the optimal path using Dijkstra's algorithm [cite: 14, 105, 163] [cite_start]and secures the payload using lightweight Schnorr cryptographic authentication[cite: 15, 115, 205].
+1. **Existing Random Routing:** A probabilistic approach that is inefficient, resource-heavy, and easily compromised by malicious nodes.
+2. **Proposed Secure Routing:** A dynamic approach that calculates the optimal path using Dijkstra's algorithm and secures the payload using lightweight Schnorr cryptographic authentication.
 
 ## ✨ Key Features
 * [cite_start]**Dynamic Network Generation:** Procedurally generate nodes based on proximity and communication capacity[cite: 13, 102].
