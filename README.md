@@ -19,15 +19,8 @@ This simulation provides a side-by-side comparison of:
 2. **Proposed Secure Routing:** A dynamic approach that calculates the optimal path using Dijkstra's algorithm and secures the payload using lightweight Schnorr cryptographic authentication.
 
 ## ✨ Key Features
-* [cite_start]**Dynamic Network Generation:** Procedurally generate nodes based on proximity and communication capacity[cite: 13, 102].
-* [cite_start]**Wormhole Attack Simulation:** Injects anomalous distant links to demonstrate how traditional random walks can be hijacked[cite: 27, 28, 255].
-* [cite_start]**Signature Verification Protocol:** Validates node authenticity and physical radio thresholds to isolate compromised edges before transmission[cite: 16, 118, 119, 263].
-* **Real-time Data Visualization:** Includes an animated system log and a dynamically generated Packet Delivery Ratio (PDR) graph comparing both methodologies.
-* **Modern UI/UX:** Features a responsive layout with an integrated Light/Dark mode toggle and a built-in PDF viewer for the published research.
-
-## 🛠️ Installation & Usage
-Because this project is built with vanilla HTML, CSS, and JavaScript, no build steps or heavy dependencies (like Node.js or Python) are required.
-
-1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/yourusername/intelligent-routing-crypto.git](https://github.com/yourusername/intelligent-routing-crypto.git)
+**Dynamic Network Generation:** Procedurally generate nodes based on proximity and communication capacity.
+**Wormhole Attack Simulation:** Injects anomalous distant links to demonstrate how traditional random walks can be hijacked.
+**Signature Verification Protocol:** Validates node authenticity and physical radio thresholds to isolate compromised edges before transmission.
+**Real-time Data Visualization:** Includes an animated system log and a dynamically generated Packet Delivery Ratio (PDR) graph comparing both methodologies.
+**Modern UI/UX:** Features a responsive layout with an integrated Light/Dark mode toggle and a built-in PDF viewer for the published research. 
